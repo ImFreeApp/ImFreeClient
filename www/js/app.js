@@ -1,64 +1,52 @@
 'use strict';
 
-angular.module('ionicApp', [
-  'ionic', 
-  'ionicApp.login', 
-  'ionicApp.selectActivity', 
-  'ionicApp.chat', 
-  'ionicApp.otherUsers', 
-  'ionicApp.profile', 
-  'ionicApp.addFbLikes',
-  'angularMoment', 
-  'luegg.directives', 
-  'ngStorage', 
-  'ngCordova'
-])
+angular.module('ionicApp', ['ionic', 'ionicApp.login', 'ionicApp.selectActivity', 'ionicApp.chat', 'angularMoment', 'luegg.directives', 'ngStorage', 'ngCordova'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('login', {
     url: '/',
     templateUrl: 'js/login/login.html',
-    controller: 'LoginCtrl',
+    controller: 'LoginCtrl'
   })
   .state('addFbLikes', {
     url: '/addFbLikes',
     templateUrl: 'js/addFbLikes/addFbLikes.html',
     controller: 'addFbLikesCtrl',
-    authenticate: false // change to 'false' for testing
+    authenticate: true
   })
   .state('chat', {
     url: '/chat',
     templateUrl: 'js/chat/chat.html',
     controller: 'chatCtrl',
-    authenticate: false // change to 'false' for testing
+    authenticate: true
 
   })
   .state('chat-detail', {
     url: '/chat/:chatId',
     templateUrl: 'js/chat/chatdetail.html',
     controller: 'chatDetailCtrl',
-    authenticate: false // change to 'false' for testing
+    authenticate: true
 
   })
-  .state('home', {
-    url: '/home',
+  .state('otherUsers', {
+    url: '/otherUsers',
     templateUrl: 'js/otherUsers/otherUsers.html',
     controller: 'otherUsersCtrl',
-    authenticate: false // change to 'false' for testing
+    authenticate: true
 
   })
   .state('profile', {
     url: '/profile',
     templateUrl: 'js/profile/profile.html',
     controller: 'profileCtrl',
-    authenticate: false // change to 'false' for testing
+    authenticate: true
   })
   .state('selectActivity', {
     url: '/selectActivity',
     templateUrl: 'js/selectActivity/selectActivity.html',
     controller: 'selectActivityCtrl',
-    authenticate: false // change to 'false' for testing
+    authenticate: true
 
   });
   $urlRouterProvider.otherwise("/");
